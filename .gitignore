@@ -2,5 +2,5 @@ Debug/
 x86/
 x64/
 .vs/
-.vcxproj.user
-.pdb
+*.vcxproj.user
+*.pdb
