@@ -19,12 +19,10 @@ void __syncthreads();
 #define NUM_BINS 256
 #define CUDA_CHECK(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort = true) {
-	if (code != cudaSuccess) {
-		fprintf(stderr, "GPUassert: %s %s %d\n", cudaGetErrorString(code),
-			file, line);
-		if (abort)
-			exit(code);
-	}
+  if (code != cudaSuccess) {
+    fprintf(stderr, "GPUassert: %s %s %d\n", cudaGetErrorString(code), file, line);
+    if (abort) exit(code);
+  }
 }
 
 __global__ void kernel_count(unsigned int *data, unsigned int input_length,unsigned int *output, unsigned int output_length)

@@ -32,7 +32,6 @@ void __syncthreads();
 #define out(i, j, k) value(output, i, j, k)
 
 __global__ void stencil(float *output, float *input, int width, int height, int depth) {
-	
 	int y = blockIdx.y * blockDim.y + threadIdx.y;
 	int x = blockIdx.x * blockDim.x + threadIdx.x;
 	printf("Hello\n");
@@ -104,7 +103,7 @@ int main(int argc, char *argv[]) {
 			color[1] = (char)(hostOutputData[offset + 1] * 255.0f);  /* green */
 			color[2] = (char)(hostOutputData[offset + 2] * 255.0f);  /* blue */
 
-																		  //std::cout << "r:" << hostOutputImageData[offset]  << "g:" << hostOutputImageData[offset+1] << "b:" << hostOutputImageData[offset+2] << std::endl;
+			//std::cout << "r:" << hostOutputImageData[offset]  << "g:" << hostOutputImageData[offset+1] << "b:" << hostOutputImageData[offset+2] << std::endl;
 			(void)fwrite(color, 1, 3, fp);
 		}
 	}
